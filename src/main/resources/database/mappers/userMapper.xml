@@ -15,7 +15,7 @@
 	)
 	</insert>
 	
-	<insert id="inputRole" parameterType="">
+	<insert id="inputRole" parameterType="UserVO">
 	insert into user_role(id,user_id,role_id)
 	values(null,#{id},3)
 	</insert>

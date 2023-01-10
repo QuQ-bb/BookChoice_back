@@ -1,6 +1,7 @@
 package com.production.bookchoice.book;
 
 import org.json.simple.JSONObject;
+
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class BookService {
 									   .build();
 		
 			Mono<ResponseEntity<String>> res = webClient.get()
-														.uri("")
+														.uri("?ttbkey="+ttbKey+"&QueryType=ItemEditorChoice&MaxResults=10&CategoryId=170&start=1&SearchTarget=Book&output=js&Version=20131101")
 														.retrieve() //응답받게 해주는 부분
 														.toEntity(String.class);
 			
