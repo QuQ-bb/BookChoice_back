@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.production.bookchoice.user.UserMapper">
+	<insert id="inputUser" parameterType="UserVO">
+	insert into user(id,password,name,email,phone)
+	values(
+		#{id},
+		#{password},
+		#{name},
+		#{email},
+		#{phone}
+	)
+	</insert>
+	
+	<insert id="inputRole" parameterType="">
+	insert into user_role(id,user_id,role_id)
+	values(null,#{id},3)
+	</insert>
+
+</mapper>    

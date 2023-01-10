@@ -8,6 +8,7 @@
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="java.util.List" alias="List"/>
 		<typeAlias type="java.lang.Integer" alias="Integer"/>
-
+		
+		<typeAlias type="com.production.bookchoice.user.UserVO" alias="UserVO"/>
 	</typeAliases>
 </configuration>
