@@ -20,14 +20,14 @@ public class BookService {
 	@Value("${aladin.ttb.key}")
 	private String ttbKey;
 	
-	public JSONObject bookList()throws Exception{
+	public JSONObject bookList(String cid)throws Exception{
 		
 		WebClient webClient = WebClient.builder()
 									   .baseUrl("http://www.aladin.co.kr/ttb/api/ItemList.aspx")
 									   .build();
 		
 			Mono<ResponseEntity<String>> res = webClient.get()
-														.uri("?ttbkey="+ttbKey+"&QueryType=ItemEditorChoice&MaxResults=50&CategoryId=170&start=1&SearchTarget=Book&output=js&Version=20131101")
+														.uri("?ttbkey="+ttbKey+"&QueryType=ItemEditorChoice&MaxResults=50&CategoryId="+cid+"&start=1&SearchTarget=Book&output=js&Version=20131101")
 														.retrieve() //응답받게 해주는 부분
 														.toEntity(String.class);
 			
@@ -46,14 +46,14 @@ public class BookService {
 			return jsonObject;
 	}
 	
-	public JSONObject bookDetail(String itemId)throws Exception{
+	public JSONObject bookDetail(String isbn)throws Exception{
 		
 		WebClient webClient = WebClient.builder()
 									   .baseUrl("http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx")
 									   .build();
 		
 		Mono<ResponseEntity<String>> res = webClient.get()
-													.uri("?ttbkey="+ttbKey+"&itemIdType=ISBN13&ItemId="+itemId+"&output=js&Version=20131101")
+													.uri("?ttbkey="+ttbKey+"&itemIdType=ISBN13&ItemId="+isbn+"&output=js&Version=20131101")
 													.retrieve()
 													.toEntity(String.class);
 		

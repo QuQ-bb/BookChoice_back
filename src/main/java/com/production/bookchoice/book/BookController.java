@@ -12,15 +12,15 @@ public class BookController {
 	private BookService bookService;
 	
 	@GetMapping("bookList")
-	public JSONObject bookList()throws Exception{
-		JSONObject bl = bookService.bookList();
+	public JSONObject bookList(String cid)throws Exception{
+		JSONObject bl = bookService.bookList(cid);
 		
 		return bl;
 	}
 	
 	@GetMapping("bookDetail")
-	public JSONObject bookDetail(String itemId)throws Exception{
-		JSONObject bd = bookService.bookDetail(itemId);
+	public JSONObject bookDetail(String isbn)throws Exception{
+		JSONObject bd = bookService.bookDetail(isbn);
 		
 		return bd;
 	}
